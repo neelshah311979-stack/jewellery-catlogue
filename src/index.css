@@ -5,11 +5,11 @@
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif;
   --font-mono: "SF Mono", "DejaVu Sans Mono", "Roboto Mono", "Plus Jakarta Sans", monospace;
   
-  --color-celestique-greige: #cfc8bc;
-  --color-celestique-stone: #c7c0b3;
-  --color-celestique-light: #f4f1ea;
-  --color-celestique-cream: #faf8f4;
-  --color-celestique-sand: #ebe6dc;
+  --color-celestique-greige: #ffffff;
+  --color-celestique-stone: #f5f5f4;
+  --color-celestique-light: #ffffff;
+  --color-celestique-cream: #ffffff;
+  --color-celestique-sand: #f5f5f4;
   --color-celestique-espresso: #1f1a16;
   --color-celestique-taupe: #6b6358;
   --color-celestique-gold: #b3844d;
@@ -17,9 +17,9 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: #f4f1ea;
+  background-color: #ffffff;
   color: #1f1a16;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .font-editorial {

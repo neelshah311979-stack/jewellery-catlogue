@@ -1,4 +1,5 @@
 import { JewelryItem, ClientReview } from '../types/jewelry';
+import { ATELIER_MEDIA } from './atelierMedia';
 
 export const JEWELRY_CATALOGUE: JewelryItem[] = [
   {
@@ -41,12 +42,12 @@ export const JEWELRY_CATALOGUE: JewelryItem[] = [
     leadTimeDays: '10–14 Days Handcrafted',
     badge: 'Atelier Best Seller',
     visualTag: 'oval',
-    imageUrl: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&q=85',
-    onHandImageUrl: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1000&q=85',
+    imageUrl: ATELIER_MEDIA.ovalSolitaireStudio,
+    onHandImageUrl: ATELIER_MEDIA.solitaireOnHand,
     galleryImages: [
-      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&q=85',
-      'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1000&q=85',
-      'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1000&q=85'
+      ATELIER_MEDIA.ovalSolitaireStudio,
+      ATELIER_MEDIA.solitaireOnHand,
+      ATELIER_MEDIA.emeraldSolitaireVelvet
     ]
   },
   {
@@ -89,11 +90,11 @@ export const JEWELRY_CATALOGUE: JewelryItem[] = [
     leadTimeDays: '12–15 Days Handcrafted',
     badge: 'Iconic Design',
     visualTag: 'emerald',
-    imageUrl: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=1000&q=85',
-    onHandImageUrl: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=85',
+    imageUrl: ATELIER_MEDIA.emeraldSolitaireVelvet,
+    onHandImageUrl: ATELIER_MEDIA.solitaireOnHand,
     galleryImages: [
-      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=1000&q=85',
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=85'
+      ATELIER_MEDIA.emeraldSolitaireVelvet,
+      ATELIER_MEDIA.solitaireOnHand
     ]
   },
   {
@@ -136,11 +137,11 @@ export const JEWELRY_CATALOGUE: JewelryItem[] = [
     leadTimeDays: '14–18 Days Handcrafted',
     badge: 'Signature Masterpiece',
     visualTag: 'toi-et-moi',
-    imageUrl: 'https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=1000&q=85',
-    onHandImageUrl: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1000&q=85',
+    imageUrl: ATELIER_MEDIA.twoStoneBypass,
+    onHandImageUrl: ATELIER_MEDIA.solitaireOnHand,
     galleryImages: [
-      'https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=1000&q=85',
-      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1000&q=85'
+      ATELIER_MEDIA.twoStoneBypass,
+      ATELIER_MEDIA.solitaireOnHand
     ]
   },
   {
@@ -182,11 +183,11 @@ export const JEWELRY_CATALOGUE: JewelryItem[] = [
     inStock: true,
     leadTimeDays: '12–15 Days Handcrafted',
     visualTag: 'cushion',
-    imageUrl: 'https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=1000&q=85',
-    onHandImageUrl: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=85',
+    imageUrl: ATELIER_MEDIA.mumbaiAtelierBench,
+    onHandImageUrl: ATELIER_MEDIA.solitaireOnHand,
     galleryImages: [
-      'https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=1000&q=85',
-      'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=85'
+      ATELIER_MEDIA.mumbaiAtelierBench,
+      ATELIER_MEDIA.ovalSolitaireStudio
     ]
   },
   {
@@ -228,11 +229,11 @@ export const JEWELRY_CATALOGUE: JewelryItem[] = [
     inStock: true,
     leadTimeDays: '10–14 Days Handcrafted',
     visualTag: 'pear',
-    imageUrl: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1000&q=85',
-    onHandImageUrl: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1000&q=85',
+    imageUrl: ATELIER_MEDIA.solitaireOnHand,
+    onHandImageUrl: ATELIER_MEDIA.ovalSolitaireStudio,
     galleryImages: [
-      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1000&q=85',
-      'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1000&q=85'
+      ATELIER_MEDIA.solitaireOnHand,
+      ATELIER_MEDIA.ovalSolitaireStudio
     ]
   },
   {
@@ -274,10 +275,10 @@ export const JEWELRY_CATALOGUE: JewelryItem[] = [
     inStock: true,
     leadTimeDays: '7–10 Days Handcrafted',
     visualTag: 'pendant',
-    imageUrl: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85',
-    onHandImageUrl: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85',
+    imageUrl: ATELIER_MEDIA.tennisLineBracelet,
+    onHandImageUrl: ATELIER_MEDIA.tennisLineBracelet,
     galleryImages: [
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85'
+      ATELIER_MEDIA.tennisLineBracelet
     ]
   },
   {
@@ -320,10 +321,10 @@ export const JEWELRY_CATALOGUE: JewelryItem[] = [
     leadTimeDays: '14–20 Days Handcrafted',
     badge: 'Atelier Statement',
     visualTag: 'riviere',
-    imageUrl: 'https://images.unsplash.com/photo-1611591475870-be9580490b4a?auto=format&fit=crop&w=1000&q=85',
-    onHandImageUrl: 'https://images.unsplash.com/photo-1611591475870-be9580490b4a?auto=format&fit=crop&w=1000&q=85',
+    imageUrl: ATELIER_MEDIA.tennisLineBracelet,
+    onHandImageUrl: ATELIER_MEDIA.tennisLineBracelet,
     galleryImages: [
-      'https://images.unsplash.com/photo-1611591475870-be9580490b4a?auto=format&fit=crop&w=1000&q=85'
+      ATELIER_MEDIA.tennisLineBracelet
     ]
   },
   {
@@ -365,10 +366,10 @@ export const JEWELRY_CATALOGUE: JewelryItem[] = [
     inStock: true,
     leadTimeDays: '5–8 Days Handcrafted',
     visualTag: 'earrings',
-    imageUrl: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=85',
-    onHandImageUrl: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=85',
+    imageUrl: ATELIER_MEDIA.ovalSolitaireStudio,
+    onHandImageUrl: ATELIER_MEDIA.mumbaiAtelierBench,
     galleryImages: [
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=85'
+      ATELIER_MEDIA.ovalSolitaireStudio
     ]
   }
 ];
@@ -386,7 +387,7 @@ export const CLIENT_REVIEWS: ClientReview[] = [
     ringSpecs: '2.50ct Oval D-VVS1 · 18K Solid Gold · Ring Size US 6',
     proposalStorySnippet: 'Proposed on the rooftop of the Brooklyn Botanic Garden at dusk.',
     clientPhotoPlaceholderText: 'Eleanor on Brooklyn Bridge',
-    photoUrl: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80'
+    photoUrl: ATELIER_MEDIA.solitaireOnHand
   },
   {
     id: 'rev-02',
@@ -400,7 +401,7 @@ export const CLIENT_REVIEWS: ClientReview[] = [
     ringSpecs: 'Pear 2.0ct + Emerald 2.0ct · Platinum 950 · Ring Size UK M',
     proposalStorySnippet: 'Surprise proposal in the Cotswolds during an anniversary weekend.',
     clientPhotoPlaceholderText: 'Charlotte showing the two-stone ring in Cotswolds',
-    photoUrl: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80'
+    photoUrl: ATELIER_MEDIA.twoStoneBypass
   },
   {
     id: 'rev-03',
@@ -414,7 +415,7 @@ export const CLIENT_REVIEWS: ClientReview[] = [
     ringSpecs: '3.00ct Emerald Cut D-VVS1 · 18K White Gold · Ring Size US 5.5',
     proposalStorySnippet: 'Sydney Harbour sunset sail proposal.',
     clientPhotoPlaceholderText: 'Ring shining against Sydney Opera House harbor',
-    photoUrl: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=800&q=80'
+    photoUrl: ATELIER_MEDIA.emeraldSolitaireVelvet
   },
   {
     id: 'rev-04',
@@ -428,7 +429,7 @@ export const CLIENT_REVIEWS: ClientReview[] = [
     ringSpecs: '2.75ct Antique Cushion D-VVS1 · 18K Solid Gold · Ring Size EU 52',
     proposalStorySnippet: 'Private dinner at Seine riverbank.',
     clientPhotoPlaceholderText: 'Subtle candlelight reflection on Paris bistro table',
-    photoUrl: 'https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=800&q=80'
+    photoUrl: ATELIER_MEDIA.ovalSolitaireStudio
   },
   {
     id: 'rev-05',
@@ -442,6 +443,6 @@ export const CLIENT_REVIEWS: ClientReview[] = [
     ringSpecs: '7.50 TCW (55 x 3mm D-VVS1) · 14K Solid White Gold · 7-inch Wrist',
     proposalStorySnippet: '10th Wedding Anniversary gift.',
     clientPhotoPlaceholderText: 'Wrist drape on white satin evening gown',
-    photoUrl: 'https://images.unsplash.com/photo-1611591475870-be9580490b4a?auto=format&fit=crop&w=800&q=80'
+    photoUrl: ATELIER_MEDIA.tennisLineBracelet
   }
 ];

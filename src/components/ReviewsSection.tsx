@@ -65,7 +65,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
 
   return (
     <section id="reviews-love-stories" className={`py-20 border-t transition-colors duration-300 ${
-      isLight ? 'bg-[#ebe5d9] border-[#ded7ca] text-[#1f1a16]' : 'bg-[#151210] border-stone-800 text-[#f2efe9]'
+      isLight ? 'bg-white border-stone-200 text-[#1f1a16]' : 'bg-[#151210] border-stone-800 text-[#f2efe9]'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header with Etsy Social Proof */}
@@ -97,7 +97,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
               rel="noopener noreferrer"
               className={`px-5 py-2.5 border text-xs font-medium uppercase tracking-wider rounded-full transition-colors cursor-pointer ${
                 isLight
-                  ? 'bg-[#faf8f4] border-[#ded7ca] text-[#1f1a16] hover:border-[#1f1a16]'
+                  ? 'bg-white border-stone-200 text-[#1f1a16] hover:border-[#1f1a16]'
                   : 'bg-stone-900 border-stone-700 text-stone-200 hover:border-amber-400 hover:text-white'
               }`}
             >
@@ -118,10 +118,10 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
         </div>
 
         {/* Filter Bar */}
-        <div className={`flex items-center justify-between border-b pb-3 text-xs ${
+        <div className={`flex flex-wrap items-center justify-between gap-2 border-b pb-3 text-xs ${
           isLight ? 'border-stone-200' : 'border-stone-800'
         }`}>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
             <span className={isLight ? 'text-stone-500' : 'text-stone-400'}>Filter Stories:</span>
             <button
               onClick={() => setFilterSource('all')}

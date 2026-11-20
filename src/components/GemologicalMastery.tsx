@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ShieldCheck, Sparkles, Award, Search, ArrowRight, Eye, Diamond } from 'lucide-react';
 import { GEMOLOGICAL_COMPARISON_TABLE, STONE_CUTS_GUIDE } from '../utils/gemology';
 import { StoneCutVisualizer } from './StoneCutVisualizer';
+import { ATELIER_MEDIA } from '../data/atelierMedia';
 
 interface GemologicalMasteryProps {
   onOpenGraModal: (certNumber?: string) => void;
@@ -28,7 +29,7 @@ export const GemologicalMastery: React.FC<GemologicalMasteryProps> = ({
 
   return (
     <section id="gemological-mastery" className={`py-20 border-t transition-colors duration-300 ${
-      isLight ? 'bg-[#f4f1ea] border-[#ded7ca] text-[#1f1a16]' : 'bg-[#151210] border-stone-800 text-[#f2efe9]'
+      isLight ? 'bg-white border-stone-200 text-[#1f1a16]' : 'bg-[#151210] border-stone-800 text-[#f2efe9]'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
@@ -56,14 +57,14 @@ export const GemologicalMastery: React.FC<GemologicalMasteryProps> = ({
           {/* 1. Clarity VVS1 */}
           <div className={`overflow-hidden border group transition-all hover:shadow-lg ${
             isLight
-              ? 'bg-[#faf9f6] border-stone-200 text-stone-900'
+              ? 'bg-white border-stone-200 text-stone-900'
               : 'bg-stone-900/70 border-stone-800 text-stone-100'
           }`}>
             <div className="h-36 overflow-hidden relative">
               <img
-                src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80"
+                src={ATELIER_MEDIA.emeraldSolitaireVelvet}
                 alt="VVS1 Clarity Loupe"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-[50%_72%] group-hover:scale-105 transition-transform duration-500"
               />
               <span className="absolute bottom-2 left-2 text-[10px] font-mono uppercase tracking-wider bg-black/70 text-white px-2 py-0.5">
                 10x Loupe Inspection
@@ -91,12 +92,12 @@ export const GemologicalMastery: React.FC<GemologicalMasteryProps> = ({
           {/* 2. Color D */}
           <div className={`overflow-hidden border group transition-all hover:shadow-lg ${
             isLight
-              ? 'bg-[#faf9f6] border-stone-200 text-stone-900'
+              ? 'bg-white border-stone-200 text-stone-900'
               : 'bg-stone-900/70 border-stone-800 text-stone-100'
           }`}>
             <div className="h-36 overflow-hidden relative">
               <img
-                src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80"
+                src={ATELIER_MEDIA.ovalSolitaireStudio}
                 alt="D-Color Icy White"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -126,12 +127,12 @@ export const GemologicalMastery: React.FC<GemologicalMasteryProps> = ({
           {/* 3. Refractive Index */}
           <div className={`overflow-hidden border group transition-all hover:shadow-lg ${
             isLight
-              ? 'bg-[#faf9f6] border-stone-200 text-stone-900'
+              ? 'bg-white border-stone-200 text-stone-900'
               : 'bg-stone-900/70 border-stone-800 text-stone-100'
           }`}>
             <div className="h-36 overflow-hidden relative">
               <img
-                src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=600&q=80"
+                src={ATELIER_MEDIA.twoStoneBypass}
                 alt="Spectral Dispersion Fire"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -161,12 +162,12 @@ export const GemologicalMastery: React.FC<GemologicalMasteryProps> = ({
           {/* 4. Mohs Hardness */}
           <div className={`overflow-hidden border group transition-all hover:shadow-lg ${
             isLight
-              ? 'bg-[#faf9f6] border-stone-200 text-stone-900'
+              ? 'bg-white border-stone-200 text-stone-900'
               : 'bg-stone-900/70 border-stone-800 text-stone-100'
           }`}>
             <div className="h-36 overflow-hidden relative">
               <img
-                src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80"
+                src={ATELIER_MEDIA.mumbaiAtelierBench}
                 alt="Atelier Durability"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -199,7 +200,7 @@ export const GemologicalMastery: React.FC<GemologicalMasteryProps> = ({
           isLight ? 'bg-white border-stone-200' : 'bg-stone-900/60 border-stone-800'
         }`}>
           <div className={`p-6 border-b flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
-            isLight ? 'border-stone-200 bg-[#faf9f6]' : 'border-stone-800'
+            isLight ? 'border-stone-200 bg-stone-50/70' : 'border-stone-800'
           }`}>
             <div>
               <h3 className={`text-lg font-editorial font-bold ${isLight ? 'text-stone-950' : 'text-white'}`}>
@@ -320,7 +321,7 @@ export const GemologicalMastery: React.FC<GemologicalMasteryProps> = ({
           {/* Interactive Active Cut Showcase */}
           <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center border p-6 sm:p-8 ${
             isLight
-              ? 'bg-[#faf9f6] border-stone-200'
+              ? 'bg-stone-50/60 border-stone-200'
               : 'bg-stone-950/70 border-stone-800'
           }`}>
             <div className="flex flex-col items-center justify-center">

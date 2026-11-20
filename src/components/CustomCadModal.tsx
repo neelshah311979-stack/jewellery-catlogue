@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { X, CheckCircle2, Sparkles, Send } from 'lucide-react';
+import { X, CheckCircle2, Sparkles, Send, MessageCircle } from 'lucide-react';
+import { buildWhatsAppUrl, ATELIER_WHATSAPP_DISPLAY } from '../utils/contact';
 
 interface CustomCadModalProps {
   isOpen: boolean;
@@ -40,9 +41,9 @@ export const CustomCadModal: React.FC<CustomCadModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/80 backdrop-blur-xs">
       <div 
-        className="relative w-full max-w-xl bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-xl bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[92dvh] overflow-y-auto"
         role="dialog"
         aria-modal="true"
         aria-labelledby="cad-modal-title"
@@ -77,12 +78,23 @@ export const CustomCadModal: React.FC<CustomCadModalProps> = ({
               <div className="text-stone-400">Dedicated CAD Specialist: Assigned within 4 hours</div>
               <div className="text-stone-400">Estimated Turnaround: 48h to first 3D render</div>
             </div>
-            <button
-              onClick={handleReset}
-              className="px-6 py-2.5 bg-amber-400 text-stone-950 text-xs font-bold uppercase tracking-wider hover:bg-amber-300 transition-colors cursor-pointer"
-            >
-              Back to Atelier Lookbook
-            </button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5">
+              <a
+                href={buildWhatsAppUrl(`Hello One Soul Jewellery Mumbai Atelier, I just submitted a Custom CAD request (${formData.stoneShape}, ${formData.caratSize}, ${formData.metalChoice}). Name: ${formData.fullName}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-5 py-2.5 border border-emerald-500/40 bg-emerald-950/50 text-emerald-300 text-xs font-bold uppercase tracking-wider hover:bg-emerald-500 hover:text-stone-950 transition-colors inline-flex items-center justify-center gap-1.5"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>Send Brief via WhatsApp ({ATELIER_WHATSAPP_DISPLAY})</span>
+              </a>
+              <button
+                onClick={handleReset}
+                className="w-full sm:w-auto px-6 py-2.5 bg-amber-400 text-stone-950 text-xs font-bold uppercase tracking-wider hover:bg-amber-300 transition-colors cursor-pointer"
+              >
+                Back to Atelier Lookbook
+              </button>
+            </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -214,14 +226,19 @@ export const CustomCadModal: React.FC<CustomCadModalProps> = ({
               />
             </div>
 
-            <div className="pt-2 border-t border-stone-800 flex items-center justify-between">
-              <span className="text-[11px] text-stone-400 flex items-center gap-1">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span>Complimentary 3D CAD modeling included</span>
-              </span>
+            <div className="pt-2 border-t border-stone-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
+              <a
+                href={buildWhatsAppUrl(`Hello One Soul Jewellery, I would like a Custom CAD design (${formData.stoneShape}, ${formData.caratSize}, ${formData.metalChoice}).`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] text-emerald-300 hover:text-white flex items-center justify-center sm:justify-start gap-1.5 underline underline-offset-4"
+              >
+                <MessageCircle className="w-3.5 h-3.5 shrink-0" />
+                <span>WhatsApp CAD Desk ({ATELIER_WHATSAPP_DISPLAY})</span>
+              </a>
               <button
                 type="submit"
-                className="px-6 py-2.5 bg-amber-400 text-stone-950 text-xs font-bold uppercase tracking-wider hover:bg-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
+                className="px-6 py-2.5 bg-amber-400 text-stone-950 text-xs font-bold uppercase tracking-wider hover:bg-amber-300 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>Submit CAD Brief</span>

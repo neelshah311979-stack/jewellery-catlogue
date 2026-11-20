@@ -2,6 +2,7 @@ import React from 'react';
 import { X, Trash2, MessageCircle, Send, CheckCircle2 } from 'lucide-react';
 import { JewelryItem, Currency, GoldPurity, GoldTone } from '../types/jewelry';
 import { calculateItemPrice, formatCurrency } from '../utils/pricing';
+import { buildWhatsAppUrl, ATELIER_WHATSAPP_DISPLAY } from '../utils/contact';
 
 export interface InquiryBagItem {
   id: string;
@@ -53,14 +54,16 @@ export const InquiryDrawer: React.FC<InquiryDrawerProps> = ({
 
   const inquirySummaryText = items.map((i, idx) => 
     `${idx + 1}. ${i.item.title} (${i.carat}ct D-VVS1, ${i.metal} ${i.tone}, Size: ${i.ringSize})`
-  ).join('%0A');
+  ).join('\n');
 
-  const whatsappUrl = `https://wa.me/919820012345?text=Hello%20One%20Soul%20Jewellery%20Mumbai%20Atelier,%20I%20would%20like%20to%20place%20a%20bespoke%20inquiry%20for%20the%20following%20curated%20pieces:%0A%0A${inquirySummaryText}%0A%0AEstimated%20Total:%20${encodeURIComponent(formatCurrency(totalInr, currency))}`;
+  const whatsappUrl = buildWhatsAppUrl(
+    `Hello One Soul Jewellery Mumbai Atelier, I would like to place a bespoke inquiry for the following curated pieces:\n\n${inquirySummaryText}\n\nEstimated Total: ${formatCurrency(totalInr, currency)}`
+  );
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end bg-black/80 backdrop-blur-xs">
       <div 
-        className="w-full max-w-md bg-stone-900 text-stone-100 h-full shadow-2xl flex flex-col border-l border-stone-800"
+        className="w-full max-w-md bg-stone-900 text-stone-100 h-dvh shadow-2xl flex flex-col border-l border-stone-800"
         role="dialog"
         aria-modal="true"
         aria-labelledby="inquiry-drawer-title"
@@ -183,7 +186,7 @@ export const InquiryDrawer: React.FC<InquiryDrawerProps> = ({
                 className="w-full py-3 bg-amber-400 text-stone-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-300 transition-colors flex items-center justify-center gap-2 text-center"
               >
                 <MessageCircle className="w-4 h-4 text-stone-950" />
-                <span>Transmit Inquiry to Mumbai Atelier</span>
+                <span>Send Inquiry via WhatsApp ({ATELIER_WHATSAPP_DISPLAY})</span>
               </a>
               <div className="text-[10px] text-stone-400 text-center flex items-center justify-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />

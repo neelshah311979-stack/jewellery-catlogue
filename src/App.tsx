@@ -180,9 +180,9 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen font-sans flex flex-col transition-colors duration-300 ${
+    <div className={`min-h-screen overflow-x-clip font-sans flex flex-col transition-colors duration-300 ${
       themeMode === 'light'
-        ? 'bg-[#f4f1ea] text-[#1f1a16] selection:bg-[#ded7ca] selection:text-[#1f1a16]'
+        ? 'bg-white text-[#1f1a16] selection:bg-stone-200 selection:text-[#1f1a16]'
         : 'bg-[#151210] text-[#f2efe9] selection:bg-[#b3844d] selection:text-[#151210]'
     }`}>
       {/* 4.1 Top Utility Header & Navigation */}
@@ -211,17 +211,15 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1">
-        {/* Interactive 3D Jewellery Experience (matching user's video!) */}
-        <div id="3d-experience">
-          <ThreeJewelryExperience
-            onAddToInquiry={handleAdd3DItemToInquiry}
-            onRequestCad={() => handleOpenCadModalFor('Royal Crown Cushion')}
-            currency={currency}
-            live18kGoldRateInr={live18kGoldRateInr}
-            themeMode={themeMode}
-            onToggleThemeMode={toggleThemeMode}
-          />
-        </div>
+        {/* Interactive 3D Jewellery Experience */}
+        <ThreeJewelryExperience
+          onAddToInquiry={handleAdd3DItemToInquiry}
+          onRequestCad={() => handleOpenCadModalFor('Royal Crown Cushion')}
+          currency={currency}
+          live18kGoldRateInr={live18kGoldRateInr}
+          themeMode={themeMode}
+          onToggleThemeMode={toggleThemeMode}
+        />
 
         {/* 4.2 Hero Section */}
         <HeroSection

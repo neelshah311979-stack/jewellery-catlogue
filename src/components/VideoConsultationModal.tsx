@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { X, Video, CheckCircle2, Calendar, Clock } from 'lucide-react';
+import { X, Video, CheckCircle2, Calendar, Clock, MessageCircle } from 'lucide-react';
+import { buildWhatsAppUrl, ATELIER_WHATSAPP_DISPLAY } from '../utils/contact';
 
 interface VideoConsultationModalProps {
   isOpen: boolean;
@@ -32,9 +33,9 @@ export const VideoConsultationModal: React.FC<VideoConsultationModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/80 backdrop-blur-xs">
       <div 
-        className="relative w-full max-w-lg bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-lg bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[92dvh] overflow-y-auto"
         role="dialog"
         aria-modal="true"
         aria-labelledby="video-modal-title"
@@ -69,12 +70,23 @@ export const VideoConsultationModal: React.FC<VideoConsultationModalProps> = ({
               <div>Platform: Google Meet / WhatsApp HD Video Link</div>
               <div>Calendar invite sent to: {formData.email}</div>
             </div>
-            <button
-              onClick={() => { setSubmitted(false); onClose(); }}
-              className="px-6 py-2.5 bg-amber-400 text-stone-950 text-xs font-bold uppercase tracking-wider hover:bg-amber-300 transition-colors cursor-pointer"
-            >
-              Done
-            </button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5">
+              <a
+                href={buildWhatsAppUrl(`Hello One Soul Jewellery, I booked a Video Consultation for ${formData.preferredDate} at ${formData.preferredTime} (${formData.timeZone}) regarding: ${selectedItemTitle}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-5 py-2.5 border border-emerald-500/40 bg-emerald-950/50 text-emerald-300 text-xs font-bold uppercase tracking-wider hover:bg-emerald-500 hover:text-stone-950 transition-colors inline-flex items-center justify-center gap-1.5"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>Connect on WhatsApp ({ATELIER_WHATSAPP_DISPLAY})</span>
+              </a>
+              <button
+                onClick={() => { setSubmitted(false); onClose(); }}
+                className="w-full sm:w-auto px-6 py-2.5 bg-amber-400 text-stone-950 text-xs font-bold uppercase tracking-wider hover:bg-amber-300 transition-colors cursor-pointer"
+              >
+                Done
+              </button>
+            </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -175,7 +187,16 @@ export const VideoConsultationModal: React.FC<VideoConsultationModalProps> = ({
               </div>
             </div>
 
-            <div className="pt-2 border-t border-stone-800 flex justify-end">
+            <div className="pt-2 border-t border-stone-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
+              <a
+                href={buildWhatsAppUrl(`Hello One Soul Jewellery Mumbai Atelier, I would like an instant WhatsApp HD Video Viewing for: ${selectedItemTitle}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] text-emerald-300 hover:text-white flex items-center justify-center sm:justify-start gap-1.5 underline underline-offset-4"
+              >
+                <MessageCircle className="w-3.5 h-3.5 shrink-0" />
+                <span>WhatsApp Video Desk ({ATELIER_WHATSAPP_DISPLAY})</span>
+              </a>
               <button
                 type="submit"
                 className="px-6 py-2.5 bg-amber-400 text-stone-950 text-xs font-bold uppercase tracking-wider hover:bg-amber-300 transition-colors cursor-pointer"

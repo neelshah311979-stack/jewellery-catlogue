@@ -1,6 +1,7 @@
 import React from 'react';
 import { Video, ShieldCheck, Star, Sparkles, Ruler, Compass, MessageCircle, Phone, Mail, MapPin, Sun, Moon } from 'lucide-react';
 import SquishSwitch from './SquishSwitch';
+import { ATELIER_WHATSAPP_DISPLAY, ATELIER_TEL_URL, buildWhatsAppUrl } from '../utils/contact';
 
 interface FooterProps {
   onOpenVideoModal: () => void;
@@ -26,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({
       isLight ? 'bg-white border-stone-200 text-stone-700' : 'bg-stone-950 border-stone-800 text-stone-300'
     }`}>
       {/* 7.3 "The OneSoul Experience" 3x2 Grid */}
-      <div className={`border-b ${isLight ? 'border-[#ded7ca] bg-[#e8e2d4]' : 'border-stone-800 bg-stone-900/60'}`}>
+      <div className={`border-b ${isLight ? 'border-stone-200 bg-white' : 'border-stone-800 bg-stone-900/60'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center max-w-xl mx-auto mb-10">
             <div className={`text-xs font-mono uppercase tracking-widest mb-1.5 ${
@@ -45,10 +46,10 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Tile 1: Mumbai Atelier */}
             <div className={`p-6 border rounded-2xl space-y-2 shadow-xs ${
-              isLight ? 'bg-[#faf8f4] border-[#ded7ca]' : 'bg-stone-950/80 border-stone-800 shadow-lg'
+              isLight ? 'bg-stone-50/70 border-stone-200' : 'bg-stone-950/80 border-stone-800 shadow-lg'
             }`}>
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                isLight ? 'bg-[#f2eee7] border border-[#ded7ca] text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
+                isLight ? 'bg-white border border-stone-200 text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
               }`}>
                 <Compass className="w-4 h-4" />
               </div>
@@ -62,10 +63,10 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* Tile 2: Video Consultations */}
             <div className={`p-6 border rounded-2xl space-y-2 shadow-xs ${
-              isLight ? 'bg-[#faf8f4] border-[#ded7ca]' : 'bg-stone-950/80 border-stone-800 shadow-lg'
+              isLight ? 'bg-stone-50/70 border-stone-200' : 'bg-stone-950/80 border-stone-800 shadow-lg'
             }`}>
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                isLight ? 'bg-[#f2eee7] border border-[#ded7ca] text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
+                isLight ? 'bg-white border border-stone-200 text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
               }`}>
                 <Video className="w-4 h-4" />
               </div>
@@ -87,10 +88,10 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* Tile 3: CAD Experts */}
             <div className={`p-6 border rounded-2xl space-y-2 shadow-xs ${
-              isLight ? 'bg-[#faf8f4] border-[#ded7ca]' : 'bg-stone-950/80 border-stone-800 shadow-lg'
+              isLight ? 'bg-stone-50/70 border-stone-200' : 'bg-stone-950/80 border-stone-800 shadow-lg'
             }`}>
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                isLight ? 'bg-[#f2eee7] border border-[#ded7ca] text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
+                isLight ? 'bg-white border border-stone-200 text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
               }`}>
                 <Sparkles className="w-4 h-4" />
               </div>
@@ -112,10 +113,10 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* Tile 4: GRA Authenticity */}
             <div className={`p-6 border rounded-2xl space-y-2 shadow-xs ${
-              isLight ? 'bg-[#faf8f4] border-[#ded7ca]' : 'bg-stone-950/80 border-stone-800 shadow-lg'
+              isLight ? 'bg-stone-50/70 border-stone-200' : 'bg-stone-950/80 border-stone-800 shadow-lg'
             }`}>
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                isLight ? 'bg-[#f2eee7] border border-[#ded7ca] text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
+                isLight ? 'bg-white border border-stone-200 text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
               }`}>
                 <ShieldCheck className="w-4 h-4" />
               </div>
@@ -137,10 +138,10 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* Tile 5: Verified Social Proof */}
             <div className={`p-6 border rounded-2xl space-y-2 shadow-xs ${
-              isLight ? 'bg-[#faf8f4] border-[#ded7ca]' : 'bg-stone-950/80 border-stone-800 shadow-lg'
+              isLight ? 'bg-stone-50/70 border-stone-200' : 'bg-stone-950/80 border-stone-800 shadow-lg'
             }`}>
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                isLight ? 'bg-[#f2eee7] border border-[#ded7ca] text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
+                isLight ? 'bg-white border border-stone-200 text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
               }`}>
                 <Star className="w-4 h-4" />
               </div>
@@ -154,10 +155,10 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* Tile 6: Sizing & Resizing */}
             <div className={`p-6 border rounded-2xl space-y-2 shadow-xs ${
-              isLight ? 'bg-[#faf8f4] border-[#ded7ca]' : 'bg-stone-950/80 border-stone-800 shadow-lg'
+              isLight ? 'bg-stone-50/70 border-stone-200' : 'bg-stone-950/80 border-stone-800 shadow-lg'
             }`}>
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                isLight ? 'bg-[#f2eee7] border border-[#ded7ca] text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
+                isLight ? 'bg-white border border-stone-200 text-[#1f1a16]' : 'bg-stone-900 border border-stone-800 text-amber-400'
               }`}>
                 <Ruler className="w-4 h-4" />
               </div>
@@ -173,7 +174,8 @@ export const Footer: React.FC<FooterProps> = ({
       </div>
 
       {/* Main Footer Information Columns */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="bg-[#181512] text-stone-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-xs">
           {/* Brand Info */}
           <div className="space-y-4">
@@ -250,12 +252,21 @@ export const Footer: React.FC<FooterProps> = ({
               <div className="flex items-center gap-2">
                 <MessageCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <a
-                  href="https://wa.me/919820012345"
+                  href={buildWhatsAppUrl('Hello One Soul Jewellery Mumbai Atelier, I would like to inquire about a fine jewellery piece.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline text-stone-200 font-mono hover:text-white"
                 >
-                  +91 98200 12345 (WhatsApp)
+                  {ATELIER_WHATSAPP_DISPLAY} (WhatsApp)
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <a
+                  href={ATELIER_TEL_URL}
+                  className="hover:underline text-stone-200 font-mono hover:text-white"
+                >
+                  {ATELIER_WHATSAPP_DISPLAY} (Call Concierge)
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -318,19 +329,19 @@ export const Footer: React.FC<FooterProps> = ({
                         onToggleThemeMode();
                       }
                     }}
-                    ariaLabel="Toggle between Cashmere Greige and Midnight Noir luxury theme"
+                    ariaLabel="Toggle between Pure White and Midnight Noir luxury theme"
                     width={48}
                     height={24}
                     radius={12}
                     speed={58}
                     stretch={36}
-                    trackColor="#ded7ca"
+                    trackColor="#e5e5e4"
                     trackOnColor="#1f1a16"
                     thumbColor="#1f1a16"
                     thumbOnColor="#c59d5f"
                     label={
                       <span className={`text-[11px] font-medium ${isLight ? 'text-stone-300' : 'text-stone-300'}`}>
-                        {isLight ? 'Cashmere' : 'Noir'}
+                        {isLight ? 'White' : 'Noir'}
                       </span>
                     }
                   />
@@ -352,6 +363,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );

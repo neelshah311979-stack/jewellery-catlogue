@@ -58,9 +58,9 @@ export const LiveGoldRateModal: React.FC<LiveGoldRateModalProps> = ({
   const maxVal = Math.max(...chartData.map((d) => d.rate)) + 15;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-6 bg-black/80 backdrop-blur-xs">
       <div 
-        className="relative w-full max-w-3xl bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[92vh] flex flex-col overflow-hidden"
+        className="relative w-full max-w-3xl bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[92dvh] flex flex-col overflow-hidden"
         role="dialog"
         aria-modal="true"
         aria-labelledby="gold-rate-modal-title"
@@ -150,7 +150,7 @@ export const LiveGoldRateModal: React.FC<LiveGoldRateModalProps> = ({
           {/* Controls: Purity Tabs & Timeframe Selector */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs border-b border-stone-800 pb-3">
             {/* Gold Purity Tabs */}
-            <div className="flex items-center gap-1">
+            <div className="flex flex-wrap items-center gap-1">
               <span className="text-stone-400 mr-1 hidden sm:inline">Purity:</span>
               {(['18K', '22K', '24K', '14K'] as GoldPurityPill[]).map((purity) => (
                 <button

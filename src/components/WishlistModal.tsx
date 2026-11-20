@@ -29,9 +29,9 @@ export const WishlistModal: React.FC<WishlistModalProps> = ({
   const wishlistedItems = items.filter((i) => wishlistIds.includes(i.id));
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/80 backdrop-blur-xs">
       <div 
-        className="relative w-full max-w-lg bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[85vh] flex flex-col"
+        className="relative w-full max-w-lg bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[90dvh] flex flex-col"
         role="dialog"
         aria-modal="true"
         aria-labelledby="wishlist-modal-title"

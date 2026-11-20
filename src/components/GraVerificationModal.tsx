@@ -46,9 +46,9 @@ export const GraVerificationModal: React.FC<GraVerificationModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/80 backdrop-blur-xs">
       <div 
-        className="relative w-full max-w-2xl bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-2xl bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[92dvh] overflow-y-auto"
         role="dialog"
         aria-modal="true"
         aria-labelledby="gra-modal-title"
@@ -77,8 +77,8 @@ export const GraVerificationModal: React.FC<GraVerificationModalProps> = ({
           </div>
 
           {/* Search Bar */}
-          <form onSubmit={handleSearch} className="flex gap-2">
-            <div className="relative flex-1">
+          <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2">
+            <div className="relative flex-1 min-w-0">
               <input
                 type="text"
                 value={certInput}

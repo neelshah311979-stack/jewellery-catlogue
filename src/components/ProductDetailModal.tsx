@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, ShieldCheck, Heart, MessageCircle, Video, Check, Info } from 'lucide-react';
 import { JewelryItem, Currency, GoldPurity, GoldTone } from '../types/jewelry';
 import { calculateItemPrice, formatCurrency } from '../utils/pricing';
+import { buildWhatsAppUrl } from '../utils/contact';
 import { StoneCutVisualizer } from './StoneCutVisualizer';
 
 interface ProductDetailModalProps {
@@ -68,9 +69,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-6 bg-black/80 backdrop-blur-xs">
       <div 
-        className="relative w-full max-w-4xl bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[92vh] flex flex-col md:flex-row overflow-hidden"
+        className="relative w-full max-w-4xl bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[92dvh] flex flex-col md:flex-row overflow-y-auto md:overflow-hidden"
         role="dialog"
         aria-modal="true"
         aria-labelledby="product-detail-title"
@@ -85,15 +86,15 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         </button>
 
         {/* Left Column: Visualizer & Macro Loupe */}
-        <div className="w-full md:w-1/2 bg-stone-950 flex flex-col border-b md:border-b-0 md:border-r border-stone-800 overflow-y-auto">
-          <div className="p-6 flex-1 flex flex-col justify-center items-center">
+        <div className="w-full md:w-1/2 bg-stone-950 flex flex-col border-b md:border-b-0 md:border-r border-stone-800 md:overflow-y-auto shrink-0">
+          <div className="p-4 sm:p-6 flex-1 flex flex-col justify-center items-center">
             <StoneCutVisualizer
               cutType={item.visualTag}
               caratText={`${selectedCarat} Carat`}
               metalTone={selectedTone}
               enableLoupe={true}
               graInscription={item.stoneDetails.graCertificateNumber}
-              className="w-full aspect-square max-w-[340px] shadow-sm"
+              className="w-full aspect-square max-w-[260px] sm:max-w-[340px] shadow-sm"
             />
             
             <div className="text-[11px] text-stone-400 text-center mt-3">
@@ -130,7 +131,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         </div>
 
         {/* Right Column: Specifications & Pricing Breakdown */}
-        <div className="w-full md:w-1/2 flex flex-col overflow-y-auto p-6 space-y-6 bg-stone-900">
+        <div className="w-full md:w-1/2 flex flex-col md:overflow-y-auto p-4 sm:p-6 space-y-5 sm:space-y-6 bg-stone-900">
           {/* Header & Badges */}
           <div>
             <div className="flex items-center justify-between">
@@ -351,7 +352,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
             <div className="grid grid-cols-2 gap-2">
               <a
-                href={`https://wa.me/919820012345?text=Hello%20One%20Soul%20Jewellery,%20I%20am%20inquiring%20about%20the%20${encodeURIComponent(item.title)}%20(${selectedCarat}ct,%20${selectedMetal})`}
+                href={buildWhatsAppUrl(`Hello One Soul Jewellery, I am inquiring about the ${item.title} (${selectedCarat}ct, ${selectedMetal} ${selectedTone}).`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="py-2.5 px-3 border border-stone-700 hover:border-amber-400 bg-stone-950 text-stone-200 hover:text-white text-center text-xs font-medium tracking-wide flex items-center justify-center gap-1.5 transition-colors"

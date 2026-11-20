@@ -58,9 +58,9 @@ export const BudgetPickerModal: React.FC<BudgetPickerModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/80 backdrop-blur-xs">
       <div 
-        className="relative w-full max-w-md bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-md bg-stone-900 border border-stone-800 text-stone-100 shadow-2xl max-h-[92dvh] overflow-y-auto"
         role="dialog"
         aria-modal="true"
         aria-labelledby="budget-modal-title"

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Search, Heart, Sparkles, Filter, Info, ShieldCheck, ArrowRight, Camera, Hand, Layers } from 'lucide-react';
 import { JewelryItem, CategoryKey, Currency } from '../types/jewelry';
 import { calculateItemPrice, formatCurrency, matchesBudget } from '../utils/pricing';
+import { buildWhatsAppUrl } from '../utils/contact';
 import { StoneCutVisualizer } from './StoneCutVisualizer';
 
 interface ProductCatalogueProps {
@@ -84,7 +85,7 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
 
   return (
     <section id="catalogue" className={`py-16 border-b transition-colors duration-300 relative overflow-hidden ${
-      isLight ? 'bg-[#f4f1ea] border-[#ded7ca] text-[#1f1a16]' : 'bg-[#151210] border-stone-800 text-[#f2efe9]'
+      isLight ? 'bg-white border-stone-200 text-[#1f1a16]' : 'bg-[#151210] border-stone-800 text-[#f2efe9]'
     }`}>
       {/* Subtle watermark title behind section header */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-[0.035] overflow-hidden whitespace-nowrap">
@@ -97,7 +98,7 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
         
         {/* Section Heading & Category Tabs */}
         <div className={`flex flex-col md:flex-row md:items-end justify-between gap-6 border-b pb-6 ${
-          isLight ? 'border-[#ded7ca]' : 'border-stone-800'
+          isLight ? 'border-stone-200' : 'border-stone-800'
         }`}>
           <div>
             <div className={`text-xs font-mono uppercase tracking-widest mb-1.5 ${
@@ -111,40 +112,40 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
               Our Most Loved Creations
             </h2>
             <p className={`text-xs mt-1.5 max-w-lg ${
-              isLight ? 'text-[#5c5448]' : 'text-stone-400'
+              isLight ? 'text-stone-600' : 'text-stone-400'
             }`}>
               Explore our celebrated bridal solitaires, rings, and fine line jewelry. Every creation features authentic 18K solid gold, certified VVS1 Moissanite, and direct formula pricing.
             </p>
           </div>
 
           {/* Search & Budget Filter Action */}
-          <div className="flex items-center gap-3">
-            <div className="relative">
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-3 w-full md:w-auto">
+            <div className="relative flex-1 min-w-0 sm:flex-initial">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search cuts, carats, styles..."
-                className={`pl-9 pr-3 py-2 text-xs border rounded-full focus:outline-hidden w-48 sm:w-60 transition-colors ${
+                className={`pl-9 pr-3 py-2 text-xs border rounded-full focus:outline-hidden w-full sm:w-60 transition-colors ${
                   isLight
-                    ? 'border-[#ded7ca] bg-[#faf8f4] text-[#1f1a16] placeholder:text-[#8a8174] focus:border-[#1f1a16]'
+                    ? 'border-stone-200 bg-white text-[#1f1a16] placeholder:text-stone-400 focus:border-[#1f1a16]'
                     : 'border-stone-800 bg-stone-900/90 text-stone-100 placeholder:text-stone-500 focus:border-amber-400'
                 }`}
               />
               <Search className={`w-3.5 h-3.5 absolute left-3 top-2.5 ${
-                isLight ? 'text-[#8a8174]' : 'text-stone-400'
+                isLight ? 'text-stone-400' : 'text-stone-400'
               }`} />
             </div>
 
             <button
               onClick={onOpenBudgetModal}
-              className={`px-4 py-2 text-xs border rounded-full transition-colors flex items-center gap-1.5 cursor-pointer whitespace-nowrap shadow-xs ${
+              className={`px-3.5 sm:px-4 py-2 text-xs border rounded-full transition-colors flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 shadow-xs ${
                 activeBudget !== 'all'
                   ? isLight
                     ? 'border-[#1f1a16] bg-[#1f1a16] text-white font-bold'
                     : 'border-amber-400 bg-amber-400 text-stone-950 font-bold'
                   : isLight
-                    ? 'border-[#ded7ca] hover:border-[#1f1a16] text-[#1f1a16] bg-[#faf8f4]'
+                    ? 'border-stone-200 hover:border-[#1f1a16] text-[#1f1a16] bg-white'
                     : 'border-stone-700 hover:border-stone-500 text-stone-200 bg-stone-900'
               }`}
             >
@@ -156,7 +157,7 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
 
         {/* Category Segmented Nav */}
         <div className={`flex items-center justify-between gap-2 overflow-x-auto pb-2 border-b text-xs ${
-          isLight ? 'border-[#ded7ca]' : 'border-stone-800'
+          isLight ? 'border-stone-200' : 'border-stone-800'
         }`}>
           <div className="flex items-center gap-1.5">
             {categories.map((cat) => {
@@ -171,7 +172,7 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
                         ? 'bg-[#1f1a16] text-white font-bold shadow-xs'
                         : 'bg-stone-100 text-stone-950 font-bold'
                       : isLight
-                        ? 'text-[#61584c] hover:text-[#1f1a16] hover:bg-[#e8e2d4]'
+                        ? 'text-stone-600 hover:text-[#1f1a16] hover:bg-stone-100'
                         : 'text-stone-400 hover:text-white hover:bg-stone-900'
                   }`}
                 >
@@ -257,7 +258,7 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
                   key={item.id}
                   className={`group transition-all duration-300 flex flex-col justify-between border rounded-2xl overflow-hidden shadow-xs hover:shadow-md ${
                     isLight
-                      ? 'bg-[#faf8f4] border-[#ded7ca] hover:border-[#1f1a16]'
+                      ? 'bg-white border-stone-200 hover:border-[#1f1a16]'
                       : 'bg-[#181512] border-stone-800 hover:border-stone-600 shadow-lg'
                   }`}
                 >
@@ -266,7 +267,7 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
                     {/* Visual Frame */}
                     <div
                       onClick={() => onSelectItem(item)}
-                      className="cursor-pointer overflow-hidden relative aspect-4/3 bg-[#f2eee7]"
+                      className="cursor-pointer overflow-hidden relative aspect-4/3 bg-stone-50"
                     >
                       {(!cardViewModes[item.id] || cardViewModes[item.id] === 'photo') && item.imageUrl ? (
                         <img
@@ -354,7 +355,7 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
                       onClick={() => onToggleWishlist(item.id)}
                       className={`absolute top-3 right-3 p-1.5 rounded-full border shadow-xs transition-colors cursor-pointer z-10 ${
                         isLight
-                          ? 'bg-[#faf8f4]/90 hover:bg-white text-[#61584c] hover:text-rose-600 border-[#ded7ca]'
+                          ? 'bg-white/95 hover:bg-white text-stone-600 hover:text-rose-600 border-stone-200'
                           : 'bg-stone-950/80 hover:bg-stone-900 text-stone-400 hover:text-rose-500 border-stone-800'
                       }`}
                       aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
@@ -416,12 +417,12 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
                     {/* Transparent Price Card & Formula Preview */}
                     <div className={`p-3 border rounded-xl space-y-1.5 ${
                       isLight
-                        ? 'bg-[#f2eee7] border-[#ded7ca]'
+                        ? 'bg-stone-50 border-stone-200'
                         : 'bg-[#221c18] border-stone-800'
                     }`}>
                       <div className="flex items-baseline justify-between">
                         <span className={`text-[11px] uppercase tracking-wider ${
-                          isLight ? 'text-[#7d7467] font-medium' : 'text-stone-400'
+                          isLight ? 'text-stone-500 font-medium' : 'text-stone-400'
                         }`}>
                           Atelier Price
                         </span>
@@ -432,9 +433,9 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
                         </span>
                       </div>
 
-                      <div className={`text-[10px] font-mono flex items-center justify-between border-t pt-1 ${
+                      <div className={`text-[10px] font-mono flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5 border-t pt-1 ${
                         isLight
-                          ? 'text-[#61584c] border-[#ded7ca]'
+                          ? 'text-stone-600 border-stone-200'
                           : 'text-stone-400 border-stone-800'
                       }`}>
                         <span>Gold: {formatCurrency(pricing.goldComponentInr, currency)}</span>
@@ -458,12 +459,12 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
                       </button>
 
                       <a
-                        href={`https://wa.me/919820012345?text=Hello%20One%20Soul%20Jewellery,%20inquiring%20about%20${encodeURIComponent(item.title)}`}
+                        href={buildWhatsAppUrl(`Hello One Soul Jewellery, inquiring about ${item.title}`)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`py-2.5 px-4 border text-xs font-medium rounded-full transition-colors cursor-pointer ${
                           isLight
-                            ? 'border-[#ded7ca] hover:border-[#1f1a16] text-[#1f1a16] bg-[#f2eee7] hover:bg-[#eae4d8]'
+                            ? 'border-stone-200 hover:border-[#1f1a16] text-[#1f1a16] bg-white hover:bg-stone-50'
                             : 'border-stone-700 hover:border-amber-400 text-stone-200 hover:text-white bg-stone-900'
                         }`}
                         title="Quick WhatsApp Inquiry"

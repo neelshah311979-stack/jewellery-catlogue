@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowDown, ShieldCheck, Star, Sparkles, Video } from 'lucide-react';
 import { StoneCutVisualizer } from './StoneCutVisualizer';
+import { ATELIER_MEDIA } from '../data/atelierMedia';
 
 interface HeroSectionProps {
   onExploreClick: () => void;
@@ -25,39 +26,43 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   const heroPhotos = [
     {
-      url: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=85',
+      url: ATELIER_MEDIA.ovalSolitaireStudio,
       title: 'The Royal Oval Solitaire',
       caption: '2.50 CT D-Color VVS1 Moissanite in 18K Yellow Gold',
       tag: 'Editorial Studio',
+      focalClass: 'object-center',
     },
     {
-      url: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1200&q=85',
+      url: ATELIER_MEDIA.solitaireOnHand,
       title: 'Worn in Natural Sunlight',
       caption: 'Real client hand-wear with diamond-rivaling fire',
       tag: 'On Hand',
+      focalClass: 'object-center',
     },
     {
-      url: 'https://images.unsplash.com/photo-1531995811006-35cb42e1a022?auto=format&fit=crop&w=1200&q=85',
+      url: ATELIER_MEDIA.mumbaiAtelierBench,
       title: 'Mumbai Atelier Bench',
       caption: 'Master goldsmith hand-forging 4-claw compass prongs',
       tag: 'Craftsmanship',
+      focalClass: 'object-center',
     },
     {
-      url: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1200&q=85',
+      url: ATELIER_MEDIA.emeraldSolitaireVelvet,
       title: 'Heirloom Velvet Vault',
       caption: 'Encased with independent GRA certificate & 10x loupe',
       tag: 'Unboxing',
+      focalClass: 'object-[50%_72%]',
     },
   ];
 
   return (
     <section className={`relative border-b transition-colors duration-300 overflow-hidden ${
-      isLight ? 'bg-[#cfc8bc] border-[#bfb7aa] text-[#1f1a16]' : 'bg-[#151210] border-stone-800 text-[#f2efe9]'
+      isLight ? 'bg-white border-stone-200 text-[#1f1a16]' : 'bg-[#151210] border-stone-800 text-[#f2efe9]'
     }`}>
       {/* Background subtle celestial watermark pattern */}
       <div className={`absolute inset-0 [background-size:32px_32px] pointer-events-none ${
         isLight
-          ? 'bg-[radial-gradient(#b8b0a2_1px,transparent_1px)] opacity-60'
+          ? 'bg-[radial-gradient(#e7e5e4_1px,transparent_1px)] opacity-60'
           : 'bg-[radial-gradient(#292524_1px,transparent_1px)] opacity-40'
       }`} />
 
@@ -68,7 +73,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="lg:col-span-7 space-y-6">
             
             {/* Celestial Season Badge */}
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] sm:text-xs font-mono tracking-widest uppercase">
               <span className="text-[#1f1a16] font-bold">✦ COLLECTION 2025 ✦</span>
               <span aria-hidden="true" className={isLight ? 'text-[#8c8477]' : 'text-stone-600'}>·</span>
               <span className={`font-semibold ${isLight ? 'text-[#423c34]' : 'text-stone-300'}`}>
@@ -113,7 +118,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 onClick={onRequestCadClick}
                 className={`px-6 py-3.5 text-xs font-semibold uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs border ${
                   isLight
-                    ? 'bg-white/50 border-[#1f1a16]/35 text-[#1f1a16] hover:bg-[#1f1a16] hover:text-white backdrop-blur-xs'
+                    ? 'bg-white border-stone-300 text-[#1f1a16] hover:bg-[#1f1a16] hover:text-white'
                     : 'bg-stone-900 border-stone-700 text-stone-200 hover:border-amber-400 hover:text-white'
                 }`}
               >
@@ -122,9 +127,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </button>
             </div>
 
-            {/* Quick Category Jump Links with Arrows (Exactly matching Celestique in reference!) */}
-            <div className={`pt-4 border-t ${isLight ? 'border-[#b8b0a2]' : 'border-stone-800'}`}>
-              <div className="text-[11px] font-mono uppercase tracking-widest text-[#61584c] mb-2">
+            {/* Quick Category Jump Links with Arrows */}
+            <div className={`pt-4 border-t ${isLight ? 'border-stone-200' : 'border-stone-800'}`}>
+              <div className="text-[11px] font-mono uppercase tracking-widest text-stone-500 mb-2">
                 Quick Atelier Curations
               </div>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-semibold tracking-wider uppercase">
@@ -169,26 +174,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Concise Metrics Strip */}
             <div className={`pt-4 border-t grid grid-cols-3 gap-3 text-xs ${
-              isLight ? 'border-[#b8b0a2]' : 'border-stone-800'
+              isLight ? 'border-stone-200' : 'border-stone-800'
             }`}>
               <div>
-                <div className={`text-[10px] uppercase font-mono ${isLight ? 'text-[#61584c]' : 'text-stone-400'}`}>
+                <div className={`text-[10px] uppercase font-mono ${isLight ? 'text-stone-500' : 'text-stone-400'}`}>
                   Hardness
                 </div>
                 <div className={`font-bold font-mono text-sm mt-0.5 ${isLight ? 'text-[#1f1a16]' : 'text-white'}`}>
                   9.25 / 10
                 </div>
               </div>
-              <div className={`border-l pl-3 ${isLight ? 'border-[#b8b0a2]' : 'border-stone-800'}`}>
-                <div className={`text-[10px] uppercase font-mono ${isLight ? 'text-[#61584c]' : 'text-stone-400'}`}>
+              <div className={`border-l pl-3 ${isLight ? 'border-stone-200' : 'border-stone-800'}`}>
+                <div className={`text-[10px] uppercase font-mono ${isLight ? 'text-stone-500' : 'text-stone-400'}`}>
                   Refractive Fire
                 </div>
                 <div className={`font-bold font-mono text-sm mt-0.5 ${isLight ? 'text-[#1f1a16]' : 'text-amber-300'}`}>
                   2.65 – 2.69
                 </div>
               </div>
-              <div className={`border-l pl-3 ${isLight ? 'border-[#b8b0a2]' : 'border-stone-800'}`}>
-                <div className={`text-[10px] uppercase font-mono ${isLight ? 'text-[#61584c]' : 'text-stone-400'}`}>
+              <div className={`border-l pl-3 ${isLight ? 'border-stone-200' : 'border-stone-800'}`}>
+                <div className={`text-[10px] uppercase font-mono ${isLight ? 'text-stone-500' : 'text-stone-400'}`}>
                   18K Purity
                 </div>
                 <div className={`font-bold font-mono text-xs mt-0.5 ${isLight ? 'text-[#1f1a16]' : 'text-amber-400'}`}>
@@ -201,15 +206,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Right Luxury Editorial Photoshoot Showcase (5 columns) */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <div className={`w-full border rounded-2xl shadow-xl overflow-hidden group ${
+            <div className={`w-full border rounded-2xl shadow-lg overflow-hidden group ${
               isLight
-                ? 'bg-[#faf8f4] border-[#bfb7aa] text-[#1f1a16]'
+                ? 'bg-white border-stone-200 text-[#1f1a16]'
                 : 'bg-stone-900/80 border-stone-800 text-stone-100'
             }`}>
               
               {/* Header Bar */}
               <div className={`flex items-center justify-between px-4 py-2.5 text-xs border-b ${
-                isLight ? 'border-[#ded7ca] bg-[#f2eee7]' : 'border-stone-800 bg-stone-950/80'
+                isLight ? 'border-stone-200 bg-stone-50' : 'border-stone-800 bg-stone-950/80'
               }`}>
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#1f1a16]" />
@@ -229,7 +234,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <img
                   src={heroPhotos[activePhotoIndex].url}
                   alt={heroPhotos[activePhotoIndex].title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={`w-full h-full object-cover ${heroPhotos[activePhotoIndex].focalClass} transition-transform duration-700 group-hover:scale-105`}
                 />
                 
                 {/* Floating caption pill */}
@@ -254,7 +259,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               {/* 4 Interactive Thumbnail Selector Tabs */}
               <div className={`grid grid-cols-4 border-t ${
-                isLight ? 'border-[#ded7ca] bg-[#faf8f4]' : 'border-stone-800 bg-stone-950'
+                isLight ? 'border-stone-200 bg-white' : 'border-stone-800 bg-stone-950'
               }`}>
                 {heroPhotos.map((photo, idx) => (
                   <button
@@ -264,10 +269,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     className={`p-2 border-r last:border-r-0 transition-all cursor-pointer flex flex-col items-center gap-1 ${
                       activePhotoIndex === idx
                         ? isLight
-                          ? 'bg-[#f2eee7] border-b-2 border-b-[#1f1a16] text-[#1f1a16] font-bold'
+                          ? 'bg-stone-100 border-b-2 border-b-[#1f1a16] text-[#1f1a16] font-bold'
                           : 'bg-stone-800 border-b-2 border-b-amber-400 text-white font-bold'
                         : isLight
-                          ? 'hover:bg-[#f7f4ee] text-[#7d7467]'
+                          ? 'hover:bg-stone-50 text-stone-500'
                           : 'hover:bg-stone-900 text-stone-400'
                     }`}
                   >
